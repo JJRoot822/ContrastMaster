@@ -15,6 +15,18 @@ public partial class MainWindow : Window
     public RGBColor BackgroundColor { get; } = new() { Red = 255, Green = 255, Blue = 255 };
     public CheckerSettings Settings { get; } = new() { Standard = WCAGStandard.DoubleA, ContentType = ContentType.TextContent, IsBoldText = false, FontSize = 12 };
 
+    public static readonly RoutedCommand FocusForegroundRedCommand = new();
+    public static readonly RoutedCommand FocusForegroundGreenCommand = new();
+    public static readonly RoutedCommand FocusForegroundBlueCommand = new();
+    public static readonly RoutedCommand FocusBackgroundRedCommand = new();
+    public static readonly RoutedCommand FocusBackgroundGreenCommand = new();
+    public static readonly RoutedCommand FocusBackgroundBlueCommand = new();
+
+    public static readonly RoutedCommand ResetAllColorsCommand= new();
+    public static readonly RoutedCommand ResetForegroundColorCommand = new();
+    public static readonly RoutedCommand ResetBackgroundColorCommand = new();
+
+
     public MainWindow()
     {
         InitializeComponent();
@@ -27,6 +39,18 @@ public partial class MainWindow : Window
 
         UpdateSettingsControls();
         UpdateContrastResults();
+
+        CommandBindings.Add(new CommandBinding(FocusForegroundRedCommand, (sender, e) => FocusForegroundRed()));
+        CommandBindings.Add(new CommandBinding(FocusForegroundGreenCommand, (sender, e) => FocusForegroundGreen()));
+        CommandBindings.Add(new CommandBinding(FocusForegroundBlueCommand, (sender, e) => FocusForegroundBlue()));
+        CommandBindings.Add(new CommandBinding(FocusBackgroundRedCommand, (sender, e) => FocusBackgroundRed()));
+        CommandBindings.Add(new CommandBinding(FocusBackgroundGreenCommand, (sender, e) => FocusBackgroundGreen()));
+        CommandBindings.Add(new CommandBinding(FocusBackgroundBlueCommand, (sender, e) => FocusBackgroundBlue()));
+
+        CommandBindings.Add(new CommandBinding(ResetAllColorsCommand, (sender, e) => ResetAllColors()));
+        CommandBindings.Add(new CommandBinding(ResetForegroundColorCommand, (sender, e) => ResetForegroundColor()));
+        CommandBindings.Add(new CommandBinding(ResetBackgroundColorCommand, (sender, e) => ResetBackgroundColor()));
+
     }
 
     public void IncreaseForegroundRed(object sender, RoutedEventArgs e)
@@ -230,5 +254,66 @@ public partial class MainWindow : Window
         {
  AccessibilityUtilities.AnnounceMostRecent(txtBlockResults, "ContrastResult", txtBlockResults.Text);
         }
+    }
+
+    public void FocusForegroundRed()
+    {
+        txtForegroundRed.Focus();
+        txtForegroundRed.SelectAll();
+    }
+
+    public void FocusForegroundGreen()
+    {
+        txtForegroundGreen.Focus();
+        txtForegroundGreen.SelectAll();
+    }
+
+    public void FocusForegroundBlue()
+    {
+        txtForegroundBlue.Focus();
+        txtForegroundBlue.SelectAll();
+    }
+
+    public void FocusBackgroundRed()
+    {
+        txtBackgroundRed.Focus();
+        txtBackgroundRed.SelectAll();
+    }
+
+    public void FocusBackgroundGreen()
+    {
+        txtBackgroundGreen.Focus();
+        txtBackgroundGreen.SelectAll();
+    }
+
+    public void FocusBackgroundBlue()
+    {
+        txtBackgroundBlue.Focus();
+        txtBackgroundBlue.SelectAll();
+    }
+
+    public void ResetForegroundColor()
+    {
+        ForegroundColor.Red = 0;
+        ForegroundColor.Green = 0;
+        ForegroundColor.Blue = 0;
+    }
+
+    public void ResetBackgroundColor()
+    {
+        BackgroundColor.Red = 255;
+        BackgroundColor.Green = 255;
+        BackgroundColor.Blue = 255;
+    }
+
+    public void ResetAllColors()
+    {
+        ForegroundColor.Red = 0;
+        ForegroundColor.Green = 0;
+        ForegroundColor.Blue = 0;
+
+        BackgroundColor.Red = 255;
+        BackgroundColor.Green = 255;
+        BackgroundColor.Blue = 255;
     }
 }
