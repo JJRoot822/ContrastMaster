@@ -1,0 +1,133 @@
+﻿<Window x:Class="ContrastMaster.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ContrastMaster"
+        xmlns:enums="clr-namespace:ContrastMaster.Enumerations"
+        xmlns:converters="clr-namespace:ContrastMaster.Converters"
+        mc:Ignorable="d"
+        Title="ContrastMaster" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <converters:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
+    </Window.Resources>
+
+    <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Horizontal">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Label Name="lblForegroundRed" Content="Foreground Red" Target="{Binding ElementName=txtForegroundRed}" Grid.Column="0" Grid.Row="0" Margin="10" />
+                <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Margin="10">
+                    <Button Name="btnDecreaseForegroundRed" AutomationProperties.Name="Decrease Foreground Red" Content="-" Click="DecreaseForegroundRed" Width="50" />
+                    <TextBox Name="txtForegroundRed" Text="{Binding ForegroundColor.Red, Mode=TwoWay}" AutomationProperties.LabeledBy="{Binding ElementName=lblForegroundRed}" Width="125" />
+                    <Button Name="btnIncreaseForegroundRed" AutomationProperties.Name="Increase Foreground Red" Content="+" Click="IncreaseForegroundRed" Width="50" />
+                </StackPanel>
+
+                <Label Name="lblForegroundGreen" Content="Foreground Green" Target="{Binding ElementName=txtForegroundGreen}" Grid.Column="0" Grid.Row="1" Margin="10" />
+                <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" Margin="10">
+                    <Button Name="btnDecreaseForegroundGreen" AutomationProperties.Name="Decrease Foreground Green" Content="-" Click="DecreaseForegroundGreen" Width="50" />
+                    <TextBox Name="txtForegroundGreen" Text="{Binding ForegroundColor.Green, Mode=TwoWay}" AutomationProperties.LabeledBy="{Binding ElementName=lblForegroundGreen}" Width="150" />
+                    <Button Name="btnIncreaseForegroundGreen" AutomationProperties.Name="Increase Foreground Green" Content="+" Click="IncreaseForegroundGreen" Width="50" />
+                </StackPanel>
+
+                <Label Name="lblForegroundBlue" Content="Foreground Blue" Target="{Binding ElementName=txtForegroundBlue}" Grid.Column="0" Grid.Row="2" Margin="10" />
+                <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" Margin="10">
+                    <Button Name="btnDecreaseForegroundBlue" AutomationProperties.Name="Decrease Foreground Blue" Content="-" Click="DecreaseForegroundBlue" Width="50" />
+                    <TextBox Name="txtForegroundBlue" Text="{Binding ForegroundColor.Blue, Mode=TwoWay}" AutomationProperties.LabeledBy="{Binding ElementName=lblForegroundBlue}" Width="150" />
+                    <Button Name="btnIncreaseForegroundBlue" AutomationProperties.Name="Increase Foreground Blue" Content="+" Click="IncreaseForegroundBlue" Width="50" />
+                </StackPanel>
+
+                <Label Name="lblBackgroundRed" Content="Background Red" Target="{Binding ElementName=txtBackgroundRed}" Grid.Column="2" Grid.Row="0" Margin="10" />
+                <StackPanel Grid.Column="3" Grid.Row="0" Orientation="Horizontal" Margin="10">
+                    <Button Name="btnDecreaseBackgroundRed" AutomationProperties.Name="Decrease Background Red" Content="-" Click="DecreaseBackgroundRed" Width="50" />
+                    <TextBox Name="txtBackgroundRed" Text="{Binding BackgroundColor.Red, Mode=TwoWay}" AutomationProperties.LabeledBy="{Binding ElementName=lblBackgroundRed}" Width="150" />
+                    <Button Name="btnIncreaseBackgroundRed" AutomationProperties.Name="Increase Background Red" Content="+" Click="IncreaseBackgroundRed" Width="50" />
+                </StackPanel>
+
+                <Label Name="lblBackgroundGreen" Content="Background Green" Target="{Binding ElementName=txtBackgroundGreen}" Grid.Column="2" Grid.Row="1" Margin="10" />
+                <StackPanel Grid.Column="3" Grid.Row="1" Orientation="Horizontal" Margin="10">
+                    <Button Name="btnDecreaseBackgroundGreen" AutomationProperties.Name="Decrease Background Green" Content="-" Click="DecreaseBackgroundGreen" Width="50" />
+                    <TextBox Name="txtBackgroundGreen" Text="{Binding BackgroundColor.Green, Mode=TwoWay}" AutomationProperties.LabeledBy="{Binding ElementName=lblBackgroundGreen}" Width="150" />
+                    <Button Name="btnIncreaseBackgroundGreen" AutomationProperties.Name="Increase Background Green" Content="+" Click="IncreaseBackgroundGreen" Width="50" />
+                </StackPanel>
+
+                <Label Name="lblBackgroundBlue" Content="Background Blue" Target="{Binding ElementName=txtBackgroundBlue}" Grid.Column="2" Grid.Row="2" Margin="10" />
+                <StackPanel Grid.Column="3" Grid.Row="2" Orientation="Horizontal" Margin="10">
+                    <Button Name="btnDecreaseBackgroundBlue" AutomationProperties.Name="Decrease Background Blue" Content="-" Click="DecreaseBackgroundBlue" Width="50" />
+                    <TextBox Name="txtBackgroundBlue" Text="{Binding BackgroundColor.Blue, Mode=TwoWay}" AutomationProperties.LabeledBy="{Binding ElementName=lblBackgroundBlue}" Width="150" />
+                    <Button Name="btnIncreaseBackgroundBlue" AutomationProperties.Name="Increase Background Blue" Content="+" Click="IncreaseBackgroundBlue" Width="50" />
+                </StackPanel>
+            </Grid>
+
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Label Name="lblStandard" Content="WCAG Standard" Target="{Binding ElementName=cbStandard}" Grid.Column="0" Grid.Row="0" Margin="10" />
+
+                <ComboBox Name="cbStandard" SelectedValue="{Binding Settings.Standard, Mode=TwoWay}" SelectedValuePath="Tag" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" AutomationProperties.LabeledBy="{Binding ElementName=lblStandard}" Margin="10">
+                    <ComboBoxItem Content="WCAG2.x AA" AutomationProperties.Name="Web Content Accessibility Guidelines 2.x AA" Tag="{x:Static enums:WCAGStandard.DoubleA}" />
+                    <ComboBoxItem Content="WCAG2.x AAA" AutomationProperties.Name="Web Content Accessibillity Guidelines 2.x AAA" Tag="{x:Static enums:WCAGStandard.TripleA}" />
+                </ComboBox>
+
+                <TextBlock Text="Content Type" Grid.Column="0" Grid.Row="1" Margin="10" />
+
+                <StackPanel KeyboardNavigation.TabNavigation="Once" Orientation="Horizontal" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Margin="10">
+                    <RadioButton Name="rdoTextContent" Content="Text Content" AutomationProperties.Name="Content Type, Text Content" GroupName="ContentTypeGroup" GotKeyboardFocus="ContentTypeRadioButtonGotKeyboardFocus" IsChecked="{Binding Settings.ContentType, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static enums:ContentType.TextContent}}" />
+                    <RadioButton Name="rdoNonTextContent" Content="Non-text Content" AutomationProperties.Name="Content Type, Non-text Content" GroupName="ContentTypeGroup" GotKeyboardFocus="ContentTypeRadioButtonGotKeyboardFocus" IsChecked="{Binding Settings.ContentType, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static enums:ContentType.NonTextContent}}" />
+                </StackPanel>
+
+                <CheckBox Name="cbxBoldText" Content="Bold Text" IsChecked="{Binding Settings.IsBoldText, Mode=TwoWay}" Grid.Column="0" Grid.Row="3" Margin="10" />
+
+                <Label Name="lblFontSize" Content="Font Size" Target="{Binding ElementName=txtFontSize}" Grid.Column="1" Grid.Row="3" Margin="10" />
+
+                <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="3" Margin="10">
+                    <Button Name="btnDecreaseFontSize" AutomationProperties.Name="Decrease Font Size" Content="-" Click="DecreaseFontSize" Width="50" />
+                    <TextBox Name="txtFontSize" Text="{Binding Settings.FontSize, Mode=TwoWay}" AutomationProperties.LabeledBy="{Binding ElementName=lblFontSize}" Width="125" />
+                    <Button Name="btnIncreaseFontSize" AutomationProperties.Name="Increase Font Size" Content="+" Click="IncreaseFontSize" Width="50" />
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="350" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="350" />
+                <ColumnDefinition Width="350" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Ellipse Width="300" Height="300" Fill="Black" Stroke="Black"
+ StrokeThickness="2" Name="swatchForeground" Grid.Column="0" Grid.Row="0" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Ellipse Width="300" Height="300" Fill="White" Stroke="Black"
+StrokeThickness="2" Name="swatchBackground" Grid.Column="1" Grid.Row="0" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+            <TextBlock Name="txtBlockResults" Text="21:1 - Pass" Foreground="Green" FontSize="20" FontWeight="Bold" AutomationProperties.LiveSetting="Polite" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Grid>
+    </StackPanel>
+</Window>
