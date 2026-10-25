@@ -23,6 +23,8 @@
         <KeyBinding Key="R" Modifiers="Control" Command="{x:Static local:MainWindow.ResetAllColorsCommand}" />
         <KeyBinding Key="R" Modifiers="Control+Shift" Command="{x:Static local:MainWindow.ResetForegroundColorCommand}" />
         <KeyBinding Key="R" Modifiers="Control+Alt+Shift" Command="{x:Static local:MainWindow.ResetBackgroundColorCommand}" />
+
+        <KeyBinding Key="D7" Modifiers="Control" Command="{x:Static local:MainWindow.FocusFontSizeCommand}" />
     </Window.InputBindings>
 
     <StackPanel Orientation="Vertical">

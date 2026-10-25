@@ -1,6 +1,7 @@
 ﻿using ContrastMaster.Enumerations;
 using ContrastMaster.Models;
 using ContrastMaster.Utilities;
+
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,6 +26,8 @@ public partial class MainWindow : Window
     public static readonly RoutedCommand ResetAllColorsCommand= new();
     public static readonly RoutedCommand ResetForegroundColorCommand = new();
     public static readonly RoutedCommand ResetBackgroundColorCommand = new();
+
+    public static readonly RoutedCommand FocusFontSizeCommand= new();
 
 
     public MainWindow()
@@ -51,6 +54,7 @@ public partial class MainWindow : Window
         CommandBindings.Add(new CommandBinding(ResetForegroundColorCommand, (sender, e) => ResetForegroundColor()));
         CommandBindings.Add(new CommandBinding(ResetBackgroundColorCommand, (sender, e) => ResetBackgroundColor()));
 
+        CommandBindings.Add(new CommandBinding(FocusFontSizeCommand, (sender, e) => FocusFontSize()));
     }
 
     public void IncreaseForegroundRed(object sender, RoutedEventArgs e)
@@ -315,5 +319,11 @@ public partial class MainWindow : Window
         BackgroundColor.Red = 255;
         BackgroundColor.Green = 255;
         BackgroundColor.Blue = 255;
+    }
+
+    public void FocusFontSize()
+    {
+        txtFontSize.Focus();
+        txtFontSize.SelectAll();
     }
 }
