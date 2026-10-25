@@ -94,7 +94,7 @@
 
                 <TextBlock Text="Content Type" Grid.Column="0" Grid.Row="1" Margin="10" />
 
-                <StackPanel KeyboardNavigation.TabNavigation="Once" Orientation="Horizontal" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Margin="10">
+                <StackPanel KeyboardNavigation.TabNavigation="Once" KeyboardNavigation.DirectionalNavigation="Cycle" Orientation="Horizontal" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Margin="10">
                     <RadioButton Name="rdoTextContent" Content="Text Content" AutomationProperties.Name="Content Type, Text Content" GroupName="ContentTypeGroup" GotKeyboardFocus="ContentTypeRadioButtonGotKeyboardFocus" IsChecked="{Binding Settings.ContentType, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static enums:ContentType.TextContent}}" />
                     <RadioButton Name="rdoNonTextContent" Content="Non-text Content" AutomationProperties.Name="Content Type, Non-text Content" GroupName="ContentTypeGroup" GotKeyboardFocus="ContentTypeRadioButtonGotKeyboardFocus" IsChecked="{Binding Settings.ContentType, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static enums:ContentType.NonTextContent}}" />
                 </StackPanel>
